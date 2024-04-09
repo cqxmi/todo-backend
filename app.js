@@ -5,10 +5,20 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var http = require("http");
 var debug = require("debug")("todo-backend:server");
+const bodyParser = require("body-parser");
 
 var indexRouter = require("./routes/index");
 
 var app = express();
+
+// 解析application/x-www-form-urlencoded数据格式
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// 解析json数据格式
+app.use(bodyParser.json());
+
+//解析 text/plain 数据格式
+app.use(bodyParser.text());
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
