@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var todosSelector = require("../controllers/todosController");
 
-/* GET users listing. */
-router.get("/get", todosSelector.selectAll);
+//获取todos
+router.get("/getTodos", todosSelector.select);
 
 module.exports = router;

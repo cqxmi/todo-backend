@@ -19,8 +19,8 @@ class Mysql {
         }
         connection.query(sql, function (error, results, fields) {
           if (error) {
-            reject(err);
-            throw error;
+            reject(error);
+            // throw error;
           }
           connection.release(); //只是释放链接，在缓冲池，没有被销毁
           resolve(results);
